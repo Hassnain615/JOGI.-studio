@@ -1,0 +1,5 @@
+# Files that stay on this computer and are not uploaded to GitHub / the live site
+_source/
+.claude/
+assets/Logo/
+node_modules/

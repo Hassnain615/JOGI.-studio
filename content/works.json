@@ -1,0 +1,154 @@
+{
+  "items": [
+    {
+      "title": "Ash Bloom",
+      "technique": "Discharge dye on cotton",
+      "year": "2026",
+      "use": "Apparel · yardage",
+      "image": "assets/uploads/work-01.webp",
+      "alt": "Black cotton cloth with cream bleached blooms scattered across it",
+      "description": "Colour is taken out of black cloth rather than put in — each bloom is drawn by where the discharge paste is allowed to spread.",
+      "palette": [
+        "#1F1F1E",
+        "#DDCFB1",
+        "#2F2C28",
+        "#AB9E83"
+      ]
+    },
+    {
+      "title": "Night Garden",
+      "technique": "Discharge dye on cotton",
+      "year": "2026",
+      "use": "Apparel · yardage",
+      "image": "assets/uploads/work-02.webp",
+      "alt": "Dark cloth with pale, leaf-like discharge marks rising like a thicket",
+      "description": "Layered marks build a dense, plant-like silhouette against a black ground, lighter and warmer where the cloth has opened up.",
+      "palette": [
+        "#191816",
+        "#AF9F78",
+        "#988660",
+        "#514532"
+      ]
+    },
+    {
+      "title": "Garden Folio",
+      "technique": "Hand-drawn illustration, ink & marker",
+      "year": "2026",
+      "use": "Surface pattern artwork",
+      "image": "assets/uploads/work-10.webp",
+      "alt": "A densely drawn sheet of flowers, leaves, birds and paisley shapes in many colours",
+      "description": "A full sheet of hand-drawn motifs — florals, foliage and birds — made as a source library for repeats and placement prints.",
+      "palette": [
+        "#7D7E69",
+        "#989F88",
+        "#C3BEA4",
+        "#4B4A42"
+      ]
+    },
+    {
+      "title": "Indigo Tide",
+      "technique": "Shibori resist, indigo dye",
+      "year": "2026",
+      "use": "Home · table runner",
+      "image": "assets/uploads/work-06.webp",
+      "alt": "A length of cloth dyed in bands of deep indigo and white with soft, bleeding edges",
+      "description": "Folded, bound and dipped: the resist leaves white bands that bleed softly into indigo along the length of the cloth.",
+      "palette": [
+        "#10152D",
+        "#626A74",
+        "#8E939D",
+        "#2E3A4D"
+      ]
+    },
+    {
+      "title": "Flame Stripe",
+      "technique": "Handwoven cotton, inlaid weft",
+      "year": "2026",
+      "use": "Home · floor mat",
+      "image": "assets/uploads/work-05.webp",
+      "alt": "A handwoven mat in blue, orange and white stripes with a flame-like band of inlaid threads",
+      "description": "A striped hand-woven mat interrupted by one band of inlaid, flame-coloured threads left to stand proud of the surface.",
+      "palette": [
+        "#2A8EC5",
+        "#AF5B27",
+        "#43494D",
+        "#909C9C"
+      ]
+    },
+    {
+      "title": "Ember Line",
+      "technique": "Discharge dye, hand-applied",
+      "year": "2026",
+      "use": "Wall piece",
+      "image": "assets/uploads/work-03.webp",
+      "alt": "Near-black cloth with a single pale trail edged in yellow running down one side",
+      "description": "A quieter study: one trailing line, haloed in yellow where the dye breaks, set against a field of small scattered marks.",
+      "palette": [
+        "#38312E",
+        "#403832",
+        "#A39577",
+        "#302B26"
+      ]
+    },
+    {
+      "title": "Thread Wall",
+      "technique": "Tufting & hanging threads",
+      "year": "2026",
+      "use": "Installation · exhibition",
+      "image": "assets/uploads/work-08.webp",
+      "alt": "An exhibition wall with a tufted purple frame, hanging threads and woven stools",
+      "description": "A room-sized piece: tufted panels, a curtain of loose threads and woven seating, shown together as one installation.",
+      "palette": [
+        "#9E8F84",
+        "#301B1A",
+        "#C2B29F",
+        "#7B6356"
+      ]
+    },
+    {
+      "title": "Printed Kurta",
+      "technique": "Repeat print on cotton",
+      "year": "2026",
+      "use": "Apparel · menswear",
+      "image": "assets/uploads/work-09.webp",
+      "alt": "A mannequin wearing a printed kurta with white trousers, with pattern swatches pinned behind",
+      "description": "A repeat print developed from swatch to garment, shown with the pattern studies that led to it.",
+      "palette": [
+        "#7B776C",
+        "#666057",
+        "#422A20",
+        "#A0998C"
+      ]
+    },
+    {
+      "title": "Match Day",
+      "technique": "Graphic placement print",
+      "year": "2026",
+      "use": "Apparel · jersey",
+      "image": "assets/uploads/work-07.webp",
+      "alt": "A T-shirt with a bold red graphic print on a mannequin, beside the poster studies for the print",
+      "description": "A sport-inspired graphic series, taken from poster studies through to a placement print on jersey.",
+      "palette": [
+        "#A3A2A5",
+        "#352F1B",
+        "#867A76",
+        "#CCB7AA"
+      ]
+    },
+    {
+      "title": "Halo",
+      "technique": "Tie-resist & discharge",
+      "year": "2026",
+      "use": "Home · cushions",
+      "image": "assets/uploads/work-04.webp",
+      "alt": "Tie-dyed cloth with dark radiating rings on a sandy gold ground",
+      "description": "Bound and discharged in rings, the cloth keeps the memory of every tie as a dark, radiating halo.",
+      "palette": [
+        "#272522",
+        "#947D5B",
+        "#B69E6F",
+        "#594C3D"
+      ]
+    }
+  ]
+}

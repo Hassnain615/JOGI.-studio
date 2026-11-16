@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "JOGI. — Textile & Surface Design Studio",
+    "description": "JOGI. is a textile and surface design studio creating hand-drawn prints, repeat patterns and custom motifs for fashion, interiors and paper. Est. 2026."
+  },
+  "hero": {
+    "label": "Studio Est. 2026",
+    "sub": "From a single fibre to finished cloth."
+  },
+  "about": {
+    "portrait_caption": "The designer, in the studio",
+    "quote_caption": "Studio philosophy",
+    "paragraphs": [
+      "Every collection begins away from the screen — with ink, gouache and a block of paper. Motifs are drawn, cut and redrawn until they hold together on their own, then built into repeats that run quietly across cloth, paper and walls.",
+      "The studio works with fashion labels, interior brands and independent makers, designing prints that respect the material they will live on: the slub of linen, the weight of cotton, the grain of a wall."
+    ],
+    "portrait_alt": "Portrait of the designer behind JOGI. Studio, standing outdoors with arms folded",
+    "facts": [
+      {
+        "label": "Based in",
+        "value": "Pakistan — working worldwide"
+      },
+      {
+        "label": "Focus",
+        "value": "Print, repeat & motif"
+      },
+      {
+        "label": "Est.",
+        "value": "2026"
+      }
+    ],
+    "title": "Cloth is a\nslow *language.*",
+    "lede": "JOGI. is a small textile and surface design studio, founded in 2026 on a simple belief: a pattern should feel as if a hand has passed over it.",
+    "portrait": "assets/uploads/portrait.webp",
+    "quote": "“I don’t decorate a surface. I listen for the pattern that is *already* in it.”"
+  },
+  "works": {
+    "title": "Collections\n*&* prints",
+    "intro": "A selection of prints, dye work, weaving and installations. Select any piece to open its case view."
+  },
+  "process": {
+    "title": "From sketch *to* cloth",
+    "steps": [
+      {
+        "title": "Sketch",
+        "text": "Loose studies in ink, pencil and gouache. Plants, architecture, old cloth — anything with a rhythm worth keeping."
+      },
+      {
+        "title": "Motif",
+        "text": "The strongest marks are isolated, refined and redrawn until each motif can stand alone, at any scale."
+      },
+      {
+        "title": "Repeat",
+        "text": "Motifs are engineered into seamless repeats — half-drop, brick or mirror — so the pattern flows without a visible join."
+      },
+      {
+        "title": "Colourway",
+        "text": "Palettes are mixed from natural dye references — indigo, madder, walnut — and tested as several colourways per design."
+      },
+      {
+        "title": "Print / Weave",
+        "text": "Final artwork is prepared for screen, block or digital print, or translated into a weave draft, with production-ready files."
+      }
+    ]
+  },
+  "services": {
+    "title": "What the studio *makes*",
+    "items": [
+      {
+        "title": "Textile print design",
+        "text": "Seasonal print collections and one-off designs for fashion and home textiles, delivered print-ready."
+      },
+      {
+        "title": "Surface pattern design",
+        "text": "Repeat patterns for wallpaper, stationery, packaging, ceramics and other surfaces."
+      },
+      {
+        "title": "Custom motifs",
+        "text": "Bespoke motifs, monograms and placement prints drawn exclusively for your brand or project."
+      },
+      {
+        "title": "Collaborations",
+        "text": "Capsule collections, licensing and creative partnerships with brands, artisans and mills."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let’s make\nsomething *woven.*",
+    "intro": "For commissions, collaborations and licensing enquiries, write a few lines about your project. Replies usually within two working days.",
+    "email": "Sajjadali.textiledesign@gmail.com",
+    "instagram_url": "https://www.instagram.com/jogi._studio/",
+    "instagram_handle": "@jogi._studio",
+    "whatsapp": "923193525322"
+  },
+  "footer": {
+    "copyright": "© 2026 JOGI. Studio",
+    "credit_name": "Sajjad Ali Jogi",
+    "credit_url": "https://www.instagram.com/jogi._studio/"
+  }
+}

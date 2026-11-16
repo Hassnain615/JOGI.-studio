@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ============ SEO ============ -->
+  <title>JOGI. — Textile &amp; Surface Design Studio</title>
+  <meta name="description" content="JOGI. is a textile and surface design studio creating hand-drawn prints, repeat patterns and custom motifs for fashion, interiors and paper. Est. 2026.">
+  <meta name="theme-color" content="#F2EEE6">
+  <link rel="canonical" href="https://jogistudio.com/">
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JOGI. Studio">
+  <meta property="og:title" content="JOGI. — Textile &amp; Surface Design Studio">
+  <meta property="og:description" content="Hand-drawn prints, repeat patterns and custom motifs. Studio est. 2026.">
+  <!-- og:url and og:image must be absolute URLs. The logo photo is used as the share image. -->
+  <meta property="og:url" content="https://jogistudio.com/">
+  <meta property="og:image" content="https://jogistudio.com/assets/images/og-cover.jpg">
+  <meta property="og:image:alt" content="The JOGI. wordmark printed on raw linen cloth">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon: "J" monogram -->
+  <link rel="icon" href="assets/svg/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Cormorant Garamond (headings) + Montserrat (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag JS + motion preference before first paint (avoids a flash of the loader for no-JS / reduced-motion visitors) -->
+  <script>
+    (function (d) {
+      d.classList.remove('no-js'); d.classList.add('js');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('reduced-motion');
+      else d.classList.add('is-loading');
+    })(document.documentElement);
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ LOADER ============
+       Threads draw across the screen (built in JS), then the logo weaves itself in. -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg class="loader__threads" id="loaderThreads"></svg>
+    <!-- The logo file is inlined by JS (js/main.js → loadLogo) so it can be drawn and recoloured -->
+    <div class="logo logo--full loader__logo" data-logo="full" data-draw><img src="assets/svg/jogi-logo.svg" alt="" width="825" height="507"></div>
+  </div>
+
+  <!-- ============ CUSTOM CURSOR (desktop, fine pointers only — enabled in JS) ============ -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <svg class="cursor__thread"><path id="cursorThread"/></svg>
+    <span class="cursor__dot" id="cursorDot"></span>
+  </div>
+
+  <!-- Shared SVG filter for the fabric-ripple hover on project cards -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false">
+    <filter id="ripple" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011 0.028" numOctaves="1" seed="4" result="noise"/>
+      <feDisplacementMap id="rippleMap" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="JOGI. Studio — back to top">
+      <span class="logo logo--nav" data-logo="mark"><img src="assets/svg/jogi-logo.svg" alt="JOGI." width="825" height="507"></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#process">Process</a>
+      <a href="#services">Services</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+      <span class="nav__toggle-label">Menu</span>
+      <span class="nav__toggle-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============
+         A scroll-scrubbed image sequence (fibre → thread → yarn → weave → printed cloth) drawn on a canvas.
+         Frames live in assets/frames/desktop (16:9, 58 frames) and assets/frames/mobile (square crop, 52 frames).
+         See "Hero sequence" in js/main.js to change frame counts or scroll length. -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero__stage">
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="hero__intro" id="heroIntro">
+          <h1 class="visually-hidden">JOGI. — Textile &amp; Surface Design Studio</h1>
+          <p class="label">Studio Est. 2026</p>
+          <p class="hero__title" aria-hidden="true">
+            <span class="hero__line"><span>Textile <em>&amp;</em></span></span>
+            <span class="hero__line"><span><em>Surface</em> Design</span></span>
+          </p>
+          <p class="hero__sub">From a single fibre to finished cloth.</p>
+        </div>
+
+        <!-- Portrait screens crop the sides of the frames, so the logo is overlaid here instead of using the printed frames -->
+        <div class="hero__print" id="heroPrint" aria-hidden="true">
+          <div class="logo logo--full" data-logo="full"><img src="assets/svg/jogi-logo.svg" alt="" width="825" height="507"></div>
+        </div>
+
+        <div class="hero__cue" id="heroCue" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============ 2. ABOUT ============ -->
+    <section class="section about" id="about" data-thread>
+      <div class="container">
+        <p class="label" data-reveal="label">01 — About the designer</p>
+        <h2 class="section__title" data-reveal="lines" data-thread-loop>Cloth is a<br>slow <em>language.</em></h2>
+
+        <div class="about__grid">
+          <figure class="about__portrait" data-weave>
+            <img src="assets/uploads/portrait.webp" alt="Portrait of the designer behind JOGI. Studio, standing outdoors with arms folded" width="457" height="618" loading="lazy" decoding="async">
+            <figcaption class="label">The designer, in the studio</figcaption>
+          </figure>
+
+          <div class="about__story">
+            <!-- PLACEHOLDER COPY — replace with the designer's own story -->
+            <p class="lede" data-reveal="lines">JOGI. is a small textile and surface design studio, founded in 2026 on a simple belief: a pattern should feel as if a hand has passed over it.</p>
+            <p data-reveal="fade">Every collection begins away from the screen — with ink, gouache and a block of paper. Motifs are drawn, cut and redrawn until they hold together on their own, then built into repeats that run quietly across cloth, paper and walls.</p>
+            <p data-reveal="fade">The studio works with fashion labels, interior brands and independent makers, designing prints that respect the material they will live on: the slub of linen, the weight of cotton, the grain of a wall.</p>
+
+            <dl class="about__facts" data-reveal="fade">
+              <div><dt class="label">Based in</dt><dd>Pakistan — working worldwide</dd></div>
+              <div><dt class="label">Focus</dt><dd>Print, repeat &amp; motif</dd></div>
+              <div><dt class="label">Est.</dt><dd>2026</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <blockquote class="quote">
+          <p data-reveal="lines">“I don’t decorate a surface. I listen for the pattern that is <em>already</em> in it.”</p>
+          <footer class="label" data-reveal="label">Studio philosophy</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============ 3. SELECTED WORKS ============
+         Cards are rendered from the WORKS array at the top of js/main.js. -->
+    <section class="section works" id="works" data-thread>
+      <div class="container">
+        <header class="section__head">
+          <p class="label" data-reveal="label">02 — Selected works</p>
+          <h2 class="section__title" data-reveal="lines" data-thread-loop>Collections<br><em>&amp;</em> prints</h2>
+          <p class="section__intro" data-reveal="fade">A selection of repeat patterns, placement prints and woven studies. Select any piece to open its case view.</p>
+        </header>
+        <div class="works__grid" id="worksGrid"></div>
+        <noscript><p>Enable JavaScript to browse the collection, or get in touch for a PDF portfolio.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ 4. PROCESS ============
+         Horizontal scroll-pinned timeline on desktop (≥ 900px), vertical list on mobile. -->
+    <section class="section process" id="process" data-thread>
+      <div class="container process__head">
+        <p class="label" data-reveal="label">03 — Process</p>
+        <h2 class="section__title" data-reveal="lines" data-thread-loop>From sketch <em>to</em> cloth</h2>
+      </div>
+
+      <div class="process__viewport">
+        <ol class="process__track" id="processTrack">
+          <li class="step">
+            <span class="step__num">01</span>
+            <svg class="step__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 50c8-14 12 6 20-8s10 4 16-10 8-2 12-14"/><path d="M44 12l8 8-6 6-8-8z"/></svg>
+            <h3 class="step__title">Sketch</h3>
+            <p>Loose studies in ink, pencil and gouache. Plants, architecture, old cloth — anything with a rhythm worth keeping.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <svg class="step__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 32c-10-6-10-18 0-24 10 6 10 18 0 24zM32 32c6-10 18-10 24 0-6 10-18 10-24 0zM32 32c10 6 10 18 0 24-10-6-10-18 0-24zM32 32c-6 10-18 10-24 0 6-10 18-10 24 0z"/></svg>
+            <h3 class="step__title">Motif</h3>
+            <p>The strongest marks are isolated, refined and redrawn until each motif can stand alone, at any scale.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <svg class="step__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8h48v48H8zM32 8v48M8 32h48"/><circle cx="20" cy="20" r="5"/><circle cx="44" cy="20" r="5"/><circle cx="20" cy="44" r="5"/><circle cx="44" cy="44" r="5"/></svg>
+            <h3 class="step__title">Repeat</h3>
+            <p>Motifs are engineered into seamless repeats — half-drop, brick or mirror — so the pattern flows without a visible join.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">04</span>
+            <svg class="step__icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="20" cy="24" r="12"/><circle cx="44" cy="24" r="12"/><circle cx="32" cy="42" r="12"/></svg>
+            <h3 class="step__title">Colourway</h3>
+            <p>Palettes are mixed from natural dye references — indigo, madder, walnut — and tested as several colourways per design.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">05</span>
+            <svg class="step__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 20h48M8 32h48M8 44h48M20 8v48M32 8v48M44 8v48"/></svg>
+            <h3 class="step__title">Print / Weave</h3>
+            <p>Final artwork is prepared for screen, block or digital print, or translated into a weave draft, with production-ready files.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 5. SERVICES ============ -->
+    <section class="section services" id="services" data-thread>
+      <div class="container">
+        <header class="section__head">
+          <p class="label" data-reveal="label">04 — Services</p>
+          <h2 class="section__title" data-reveal="lines" data-thread-loop>What the studio <em>makes</em></h2>
+        </header>
+
+        <ul class="services__list">
+          <li class="service" data-reveal="fade">
+            <span class="service__num label">01</span>
+            <h3 class="service__title">Textile print design</h3>
+            <p>Seasonal print collections and one-off designs for fashion and home textiles, delivered print-ready.</p>
+          </li>
+          <li class="service" data-reveal="fade">
+            <span class="service__num label">02</span>
+            <h3 class="service__title">Surface pattern design</h3>
+            <p>Repeat patterns for wallpaper, stationery, packaging, ceramics and other surfaces.</p>
+          </li>
+          <li class="service" data-reveal="fade">
+            <span class="service__num label">03</span>
+            <h3 class="service__title">Custom motifs</h3>
+            <p>Bespoke motifs, monograms and placement prints drawn exclusively for your brand or project.</p>
+          </li>
+          <li class="service" data-reveal="fade">
+            <span class="service__num label">04</span>
+            <h3 class="service__title">Collaborations</h3>
+            <p>Capsule collections, licensing and creative partnerships with brands, artisans and mills.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 6. CONTACT ============ -->
+    <section class="section contact" id="contact" data-thread>
+      <div class="container">
+        <header class="section__head">
+          <p class="label" data-reveal="label">05 — Contact</p>
+          <h2 class="section__title" data-reveal="lines" data-thread-loop>Let’s make<br>something <em>woven.</em></h2>
+        </header>
+
+        <div class="contact__grid">
+          <div class="contact__details" data-reveal="fade">
+            <p>For commissions, collaborations and licensing enquiries, write a few lines about your project. Replies usually within two working days.</p>
+            <!-- Contact details -->
+            <ul class="contact__links">
+              <li><span class="label">Email</span><a href="mailto:Sajjadali.textiledesign@gmail.com">Sajjadali.textiledesign@gmail.com</a></li>
+              <li><span class="label">Instagram</span><a href="https://www.instagram.com/jogi._studio/" target="_blank" rel="noopener">@jogi._studio</a></li>
+            </ul>
+            <!-- WhatsApp: use full international number, digits only (e.g. 923001234567) -->
+            <a class="btn btn--whatsapp" href="https://wa.me/923193525322?text=Hello%20JOGI.%20Studio" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M8.8 8.2c.5 2.9 2.2 4.900 5.300 6.200l1.400-1.400-1.800-1-.9.800c-.9-.5-1.600-1.200-2.100-2.100l.8-.9-1-1.900z"/></svg>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Netlify Forms: the data-netlify attribute + hidden form-name field are all Netlify needs.
+               On other hosts, point "action" at your own form endpoint (Formspree, etc.). -->
+          <form class="form" id="enquiryForm" name="enquiry" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-reveal="fade">
+            <input type="hidden" name="form-name" value="enquiry">
+            <p class="visually-hidden"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-type">Enquiry type</label>
+              <select id="f-type" name="type">
+                <option>Textile print design</option>
+                <option>Surface pattern design</option>
+                <option>Custom motifs</option>
+                <option>Collaboration</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-message">Tell me about the project</label>
+              <textarea id="f-message" name="message" rows="4" required></textarea>
+            </div>
+            <button class="btn" type="submit"><span>Send enquiry</span></button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 7. FOOTER ============
+       The taut threads at the top loosen and unravel as you reach the bottom (built in JS). -->
+  <footer class="footer" id="footer">
+    <div class="footer__threads" id="footerThreads" aria-hidden="true"></div>
+    <div class="container footer__inner">
+      <div class="logo logo--full footer__logo" data-logo="full" data-draw><img src="assets/svg/jogi-logo.svg" alt="JOGI. — Textile &amp; Surface Design, Studio Est. 2026" width="825" height="507"></div>
+
+      <nav class="footer__nav" aria-label="Social">
+        <!-- Social links -->
+        <a href="https://www.instagram.com/jogi._studio/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/923193525322" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:Sajjadali.textiledesign@gmail.com">Email</a>
+      </nav>
+
+      <div class="footer__base">
+        <p>© 2026 JOGI. Studio</p>
+        <!-- Credit line: change the name or link here -->
+        <p>Website by <a href="https://www.instagram.com/jogi._studio/" target="_blank" rel="noopener">Sajjad Ali Jogi</a></p>
+        <a href="#top" class="footer__top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX / CASE VIEW ============ -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lbTitle" data-lenis-prevent>
+    <div class="lightbox__inner">
+      <figure class="lightbox__figure" id="lbFigure"><img id="lbImage" alt=""></figure>
+      <div class="lightbox__info">
+        <p class="label" id="lbCount"></p>
+        <h2 class="lightbox__title" id="lbTitle"></h2>
+        <dl class="lightbox__meta">
+          <div><dt class="label">Technique</dt><dd id="lbTechnique"></dd></div>
+          <div><dt class="label">Year</dt><dd id="lbYear"></dd></div>
+          <div><dt class="label">Application</dt><dd id="lbUse"></dd></div>
+        </dl>
+        <p class="lightbox__desc" id="lbDesc"></p>
+        <div class="lightbox__palette" id="lbPalette" aria-label="Colour palette"></div>
+        <div class="lightbox__nav">
+          <button type="button" id="lbPrev" aria-label="Previous work">← Prev</button>
+          <button type="button" id="lbNext" aria-label="Next work">Next →</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="lightbox__close" id="lbClose" aria-label="Close case view">Close ✕</button>
+  </dialog>
+
+  <!-- ============ SCRIPTS (CDN, no build step) ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

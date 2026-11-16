@@ -1,0 +1,170 @@
+# ==========================================================================
+# JOGI. Studio — admin configuration (Decap CMS)
+# The admin page lives at  https://YOUR-SITE/admin/
+# ==========================================================================
+
+backend:
+  name: github
+  # TODO: put your own GitHub "username/repository" here before going live
+  repo: YOUR-GITHUB-USERNAME/jogi-studio
+  branch: main
+  commit_messages:
+    create: "Admin: add {{collection}}"
+    update: "Admin: update {{slug}}"
+    uploadMedia: "Admin: upload {{path}}"
+    deleteMedia: "Admin: delete {{path}}"
+
+# Lets you try the admin on your own computer without logging in:
+#   1) npx serve .          2) npx decap-server          3) open http://localhost:3000/admin/
+# It is ignored on the live website.
+local_backend: true
+
+# Where uploaded photos are saved
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+site_url: https://jogistudio.com
+display_url: https://jogistudio.com
+logo_url: /assets/svg/jogi-logo.svg
+
+# The site has no page templates for a live preview, so hide the preview pane
+editor:
+  preview: false
+
+collections:
+  - name: website
+    label: Website
+    description: Everything that can be changed on the site.
+    editor:
+      preview: false
+    files:
+      # ------------------------------------------------------------------
+      # Selected works
+      # ------------------------------------------------------------------
+      - name: works
+        label: "Works (portfolio)"
+        file: content/works.json
+        fields:
+          - name: items
+            label: Works
+            label_singular: Work
+            widget: list
+            summary: "{{fields.title}} — {{fields.technique}}"
+            hint: "Add, delete or drag to reorder. The order here is the order on the site."
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: image, label: Photo, widget: image, hint: "JPG, PNG or WebP. Best under 2 MB and about 1600 px on the long side." }
+              - { name: alt, label: "Photo description", widget: string, required: false, hint: "One sentence describing the photo, for screen readers and Google." }
+              - { name: technique, label: Technique, widget: string, hint: "e.g. Shibori resist, indigo dye" }
+              - { name: year, label: Year, widget: string, default: "2026" }
+              - { name: use, label: "Application / use", widget: string, required: false, hint: "e.g. Home · table runner" }
+              - { name: description, label: Description, widget: text, required: false }
+              - name: palette
+                label: "Colour palette"
+                label_singular: Colour
+                widget: list
+                required: false
+                hint: "2–4 colours shown as dots in the case view."
+                field: { name: colour, label: Colour, widget: color }
+
+      # ------------------------------------------------------------------
+      # All text, services and contact details
+      # ------------------------------------------------------------------
+      - name: site
+        label: "Text, services & contact"
+        file: content/site.json
+        fields:
+          - name: seo
+            label: "Google & sharing"
+            widget: object
+            fields:
+              - { name: title, label: "Page title", widget: string }
+              - { name: description, label: "Short description", widget: text }
+
+          - name: hero
+            label: "Top of page (hero)"
+            widget: object
+            fields:
+              - { name: label, label: "Small label", widget: string }
+              - { name: sub, label: "Line under the title", widget: string }
+
+          - name: about
+            label: About
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: text, hint: "Put *stars* around a word to make it italic. A new line makes a line break." }
+              - { name: portrait, label: Portrait, widget: image }
+              - { name: portrait_alt, label: "Portrait description", widget: string, required: false }
+              - { name: portrait_caption, label: "Caption under portrait", widget: string, required: false }
+              - { name: lede, label: "Opening line (large)", widget: text }
+              - name: paragraphs
+                label: Paragraphs
+                label_singular: Paragraph
+                widget: list
+                field: { name: text, label: Paragraph, widget: text }
+              - name: facts
+                label: "Facts row"
+                label_singular: Fact
+                widget: list
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: value, label: Value, widget: string }
+              - { name: quote, label: Quote, widget: text, hint: "*Stars* make a word italic." }
+              - { name: quote_caption, label: "Quote caption", widget: string, required: false }
+
+          - name: works
+            label: "Works section heading"
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: text, hint: "*Stars* = italic, new line = line break." }
+              - { name: intro, label: Introduction, widget: text, required: false }
+
+          - name: process
+            label: Process
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: text, hint: "*Stars* = italic, new line = line break." }
+              - name: steps
+                label: Steps
+                label_singular: Step
+                widget: list
+                summary: "{{fields.title}}"
+                hint: "Five steps fit the design best."
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Text, widget: text }
+
+          - name: services
+            label: Services
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: text, hint: "*Stars* = italic, new line = line break." }
+              - name: items
+                label: Services
+                label_singular: Service
+                widget: list
+                summary: "{{fields.title}}"
+                hint: "These also appear in the enquiry form's menu."
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Text, widget: text }
+
+          - name: contact
+            label: Contact
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: text, hint: "*Stars* = italic, new line = line break." }
+              - { name: intro, label: Introduction, widget: text, required: false }
+              - { name: email, label: Email, widget: string }
+              - { name: instagram_url, label: "Instagram link", widget: string }
+              - { name: instagram_handle, label: "Instagram name shown", widget: string, hint: "e.g. @jogi._studio" }
+              - { name: whatsapp, label: "WhatsApp number", widget: string, hint: "Digits only with country code, no + or spaces. e.g. 923193525322" }
+
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: copyright, label: "Copyright line", widget: string }
+              - { name: credit_name, label: "Website by — name", widget: string }
+              - { name: credit_url, label: "Website by — link", widget: string, required: false }
